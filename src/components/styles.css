@@ -4,3 +4,18 @@
     align-items: center;
     color: #ebc08b;
 }
+
+.itemCounter{
+    margin: 2rem;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    background-color: #ebc08b;
+    display: flex;
+    flex-direction: column;
+    width: 100px;
+    align-items: center;
+}
+.counter{
+    display: flex;
+    flex-direction: row;
+}
