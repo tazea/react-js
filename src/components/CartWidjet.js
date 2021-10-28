@@ -1,5 +1,5 @@
 import { BsCart } from "react-icons/bs"
-import "./styles.css"
+import "../styles/styles.css";
 
 
 const CartWidjet = () => {

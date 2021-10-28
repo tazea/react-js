@@ -1,0 +1,14 @@
+.cartWidjet{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ebc08b;
+}
+
+.itemCounter{
+
+}
+.counter{
+    display: flex;
+    flex-direction: row;
+}
