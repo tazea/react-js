@@ -1,14 +1,27 @@
-.cartWidjet{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #ebc08b;
+.cartWidjet {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ebc08b;
 }
 
-.itemCounter{
-
+button {
+  border-style: none;
+  border-radius: 1rem;
+  text-decoration: none;
+  color: #ebc08b;
+  background-color: #252b33;
+  padding: 0.3rem 0.7rem;
 }
-.counter{
-    display: flex;
-    flex-direction: row;
+
+
+.loadingScreen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+.counter {
+  display: flex;
+  flex-direction: row;
 }

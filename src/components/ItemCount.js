@@ -1,4 +1,3 @@
-import { Button } from "react-bootstrap";
 import { useState } from "react";
 import "../styles/styles.css";
 
@@ -29,16 +28,15 @@ const ItemCount = ({ initial, stock, title }) => {
 
   return (
     <>
-      <h2>Counter</h2>
       <h3>{title}</h3>
       <div>
         <div className="itemCounter">
           <div className="counter">
-            <Button onClick={onDecrease}>-</Button>
-            <h2>{qty}</h2>
-            <Button onClick={onIncrease}>+</Button>
+            <button onClick={onDecrease}>-</button>
+            <h3>{qty}</h3>
+            <button onClick={onIncrease}>+</button>
           </div>
-          <Button onClick={onAdd}>Agregar al Carrito</Button>
+          <button onClick={onAdd}>Agregar al Carrito</button>
         </div>
       </div>
     </>

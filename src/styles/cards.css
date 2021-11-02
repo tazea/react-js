@@ -1,0 +1,15 @@
+.productContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;    
+}
+
+.productCard{
+    display: flex;
+    flex-direction: row;
+}
+
+.productImg{
+    width: 25vw;
+}
