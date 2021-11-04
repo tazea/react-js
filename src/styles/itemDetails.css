@@ -1,0 +1,23 @@
+.descContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    height: 75vh;
+}
+.descText{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-content: center;
+}
+.descImg{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+Col{
+    height: 75vh;
+}
+img{
+    max-height: 100%;
+}

@@ -4,17 +4,6 @@
   align-items: center;
   color: #ebc08b;
 }
-
-button {
-  border-style: none;
-  border-radius: 1rem;
-  text-decoration: none;
-  color: #ebc08b;
-  background-color: #252b33;
-  padding: 0.3rem 0.7rem;
-}
-
-
 .loadingScreen {
   display: flex;
   justify-content: center;

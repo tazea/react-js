@@ -1,15 +1,28 @@
-.productContainer{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;    
+.productContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-.productCard{
-    display: flex;
-    flex-direction: row;
+.productCard {
+  display: flex;
+  flex-direction: row;
+}
+.productDesc {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 
-.productImg{
-    width: 25vw;
+.productImg {
+  width: 25vw;
+}
+button {
+  border-style: none;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  color: #ebc08b;
+  background-color: #252b33;
+  margin: 0.2rem;
 }
