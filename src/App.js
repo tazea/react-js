@@ -14,11 +14,11 @@ function App() {
               <Route path="/" exact>
                 Landing
               </Route>
-              <Route path="/products" exact>
-                <ItemListContainer/>
-              </Route>
               <Route path="/product/:productId" exact>
                 <ItemDetailContainer/>
+              </Route>
+              <Route path="/category/:categoryId" exact>
+                <ItemListContainer/>
               </Route>
               <Route path="/support" exact></Route>
               <Route path="/cart" exact></Route>
