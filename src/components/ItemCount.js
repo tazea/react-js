@@ -1,7 +1,8 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import "../styles/styles.css";
 
-const ItemCount = ({ initial, stock, title }) => {
+const ItemCount = ({ initial, stock, onAdd }) => {
   const [qty, setQty] = useState(initial);
   console.log(qty);
 
@@ -19,27 +20,22 @@ const ItemCount = ({ initial, stock, title }) => {
     }
   };
 
-  const onAdd = () => {
-    const message = `Agregaste ${qty} producto`;
-    if (stock !== 0) {
-      qty === 1 ? alert(message) : alert(message + `s`);
-    }
+  const handlerOnAdd = () => {
+    onAdd(qty);
+    console.log("Agregaste " + qty + " unidades");
   };
 
   return (
-    <>
-      <h3>{title}</h3>
       <div>
         <div className="itemCounter">
           <div className="counter">
-            <button onClick={onDecrease} disabled={qty < 1}>-</button>
+            <button onClick={onDecrease} disabled={qty < 1}> - </button>
             <h3>{qty}</h3>
             <button onClick={onIncrease}>+</button>
           </div>
-          <button onClick={() => onAdd(qty)}>Agregar al Carrito</button>
+            <Link to="/cart"><button onClick={() => handlerOnAdd(qty)}>Agregar al Carrito</button></Link>
         </div>
       </div>
-    </>
   );
 };
 

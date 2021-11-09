@@ -19,9 +19,10 @@ const NavBar = () => {
             <NavDropdown.Item href="/category/handbrakes">Handbrakes</NavDropdown.Item>
           </NavDropdown>
           <Nav.Link href="/support">Support</Nav.Link>
-          <Nav.Link href="/cart">
-            <CartWidjet />
-          </Nav.Link>
+        </Nav>
+        <Nav>
+          <Nav.Link href="/cart"><CartWidjet /></Nav.Link>
+          <Nav.Link href="/cart">Cart</Nav.Link>
         </Nav>
       </Container>
     </Navbar>

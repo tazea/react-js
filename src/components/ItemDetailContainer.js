@@ -6,7 +6,7 @@ import Spinner from "react-bootstrap/Spinner";
 import "../styles/styles.css";
 
 const ItemDetailContainer = () => {
-  const [detail, setDetail] = useState([]);
+  const [prod, setDetail] = useState([]);
   const [loading, setLoading] = useState(true);
   const { productId } = useParams();
 
@@ -25,7 +25,7 @@ const ItemDetailContainer = () => {
           <Spinner animation="border" />
         </div>
       ) : (
-        <ItemDetail detail={detail} />
+        <ItemDetail prod={prod} />
       )}
     </div>
   );
