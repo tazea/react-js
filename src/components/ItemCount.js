@@ -4,6 +4,7 @@ import "../styles/styles.css";
 
 const ItemCount = ({ initial, stock, onAdd }) => {
   const [qty, setQty] = useState(initial);
+  const [buyState, setBuyState] = useState(false);
   console.log(qty);
 
   const onIncrease = () => {
@@ -22,20 +23,35 @@ const ItemCount = ({ initial, stock, onAdd }) => {
 
   const handlerOnAdd = () => {
     onAdd(qty);
+    setBuyState(true);
     console.log("Agregaste " + qty + " unidades");
   };
 
   return (
-      <div>
-        <div className="itemCounter">
-          <div className="counter">
-            <button onClick={onDecrease} disabled={qty < 1}> - </button>
-            <h3>{qty}</h3>
-            <button onClick={onIncrease}>+</button>
-          </div>
-            <Link to="/cart"><button onClick={() => handlerOnAdd(qty)}>Agregar al Carrito</button></Link>
+    <div>
+      <div className="itemCounter">
+        <div className="counter">
+          <button onClick={onDecrease} disabled={qty < 1}>
+            {" "}
+            -{" "}
+          </button>
+          <h3>{qty}</h3>
+          <button onClick={onIncrease}>+</button>
         </div>
+        {buyState ? (
+          <div>
+            <Link to="/category/todos">
+              <button>Seguir comprando</button>
+            </Link>
+            <Link to="/cart">
+              <button>Terminar compra</button>
+            </Link>
+          </div>
+        ) : (
+          <button onClick={() => handlerOnAdd(qty)}>Agregar al Carrito</button>
+        )}
       </div>
+    </div>
   );
 };
 
