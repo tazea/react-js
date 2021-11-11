@@ -4,11 +4,15 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import ItemCount from "./ItemCount";
+import { useCartContext } from "./CartContext";
 
 const ItemDetail = ({ prod }) => {
   const [count, setCount] = useState(1)
+  const { cartArray, addToCart } = useCartContext()
+
   const onAdd = (val) => {
-    setCount(val);
+    setCount(val)
+    addToCart({prod, qty: val})
     console.log(count)
   };
 
