@@ -1,17 +1,19 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ItemDetail from "./ItemDetail";
-import GetItem from "./GetItem";
+import GetFetchList from "./GetFetchList";
 import Spinner from "react-bootstrap/Spinner";
 import "../styles/styles.css";
+import { useCartContext } from "./CartContext";
 
 const ItemDetailContainer = () => {
   const [prod, setDetail] = useState([]);
   const [loading, setLoading] = useState(true);
   const { productId } = useParams();
+  const { onAdd } = useCartContext();
 
   useEffect(() => {
-    GetItem.then((response) => {
+    GetFetchList.then((response) => {
         setDetail(response.find((prod) => prod.id === productId));
     })
       .catch((error) => console.log(error))
@@ -25,7 +27,7 @@ const ItemDetailContainer = () => {
           <Spinner animation="border" />
         </div>
       ) : (
-        <ItemDetail prod={prod} />
+        <ItemDetail prod={prod} onAdd={onAdd}/>
       )}
     </div>
   );

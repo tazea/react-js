@@ -1,20 +1,14 @@
-.productContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.productCard {
-  display: flex;
-  flex-direction: row;
-}
 .productDesc {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
 }
-
+.productTitle{
+  font-family: "Montserrat Medium";
+}
+.productDrop{
+  font-family: "Montserrat LightItalic";
+}
 .productImg {
   width: 25vw;
 }

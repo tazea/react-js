@@ -1,28 +1,44 @@
 import { Navbar, Nav, Container, NavDropdown } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import CartWidjet from "../components/CartWidjet";
 import logo from "../logo.png";
+import "../styles/navbar.css";
 
 const NavBar = () => {
   //Logic Development
   return (
     <Navbar bg="dark" variant="dark">
       <Container>
-        <Navbar.Brand href="/">
+        <Link className="linkItem" to="/">
           <img src={logo} height="50px" alt="Podium" />
-        </Navbar.Brand>
+        </Link>
         <Nav className="me-auto">
-          <Nav.Link href="/">Home</Nav.Link>
-          <Nav.Link href="/category/todos">Products</Nav.Link>
-          <NavDropdown title="Categories" id="collasible-nav-dropdown">
-            <NavDropdown.Item href="/category/pedals">Pedals</NavDropdown.Item>
-            <NavDropdown.Item href="/category/shifters">Shifters</NavDropdown.Item>
-            <NavDropdown.Item href="/category/handbrakes">Handbrakes</NavDropdown.Item>
-          </NavDropdown>
-          <Nav.Link href="/support">Support</Nav.Link>
+          <Link to="/" className="linkItem">
+            Home
+          </Link>
+          <Link to="/category/todos" className="linkItem">
+            Products
+          </Link>
+          <Link to="/category/pedals" className="linkItem">
+            Pedals
+          </Link>
+          <Link to="/category/shifters" className="linkItem">
+            Shifters
+          </Link>
+          <Link to="/category/handbrakes" className="linkItem">
+            Handbrakes
+          </Link>
+          <Link to="/support" className="linkItem">
+            Support
+          </Link>
         </Nav>
         <Nav>
-          <Nav.Link href="/cart"><CartWidjet /></Nav.Link>
-          <Nav.Link href="/cart">Cart</Nav.Link>
+          <Link to="/cart" className="linkItem">
+            <CartWidjet />
+          </Link>
+          <Link to="/cart" className="linkItem">
+            Cart
+          </Link>
         </Nav>
       </Container>
     </Navbar>

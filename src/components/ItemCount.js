@@ -1,4 +1,4 @@
-import { useState } from "react";
+/* import { useState } from "react";
 import { Link } from "react-router-dom";
 import "../styles/styles.css";
 
@@ -41,18 +41,18 @@ const ItemCount = ({ initial, stock, onAdd }) => {
         {buyState ? (
           <div>
             <Link to="/category/todos">
-              <button>Seguir comprando</button>
+              <button>Search for another</button>
             </Link>
             <Link to="/cart">
-              <button>Terminar compra</button>
+              <button>Checkout</button>
             </Link>
           </div>
         ) : (
-          <button onClick={() => handlerOnAdd(qty)}>Agregar al Carrito</button>
+          <button onClick={() => handlerOnAdd(qty)}>Add to cart</button>
         )}
       </div>
     </div>
   );
 };
 
-export default ItemCount;
+export default ItemCount; */
