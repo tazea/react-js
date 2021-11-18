@@ -10,7 +10,7 @@ const Item = ({ prod }) => {
       <div className="productCard">
         <Row>
           <Col xs="4">
-            <img className="productImg" src={prod.img} alt={prod.title} />
+            <img className="productImg" src={'../assets/'+ prod.image} alt={prod.title} />
           </Col>
           <Col>
             <div className="productDesc">

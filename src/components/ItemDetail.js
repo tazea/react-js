@@ -3,7 +3,6 @@ import { useState } from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import ItemCount from "./ItemCount";
 import { useCartContext } from "./CartContext";
 import { Link } from "react-router-dom";
 
@@ -20,7 +19,7 @@ const ItemDetail = ({ prod, onAdd }) => {
       <Row xs="auto">
         <div className="descContainer">
           <Col className="descImg" sm={8}>
-            <img className="" src={prod.img} alt={prod.title} />
+            <img className="" src={'../assets/'+ prod.image} alt={prod.title} />
           </Col>
           <Col className="descText" sm={{ span: 3, offset: 1 }}>
             <h5 className="descTitle">{prod.title}</h5>
@@ -38,8 +37,6 @@ const ItemDetail = ({ prod, onAdd }) => {
             ) : (
               <button onClick={() => handlerOnAdd(prod)}>Add to Cart</button>
             )}
-
-            {/* <ItemCount initial={1} onAdd={onAdd} stock={prod.stock} /> */}
           </Col>
         </div>
       </Row>

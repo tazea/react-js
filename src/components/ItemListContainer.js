@@ -1,31 +1,37 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ItemList from "./ItemList";
-import GetFetchList from "./GetFetchList";
 import Spinner from "react-bootstrap/Spinner";
 import "../styles/styles.css";
+import { getFirestore } from "./getFirestore";
 
 const ItemListContainer = () => {
-  const [product, setProduct] = useState([]);
+  const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const { categoryId } = useParams();
 
   useEffect(() => {
-    if(categoryId === "todos"){
-      GetFetchList.then((response) => {
-        setProduct(response);
-      })
-        .catch((error) => console.log(error))
+    const db = getFirestore();
+    const itemsCollection = db.collection("items")
+    const itemsCategoryCollection = itemsCollection.where('category', '==', categoryId);
+
+    if (categoryId === "todos") {
+      itemsCollection.get()
+        .then((resp) => {
+          setProducts(resp.docs.map(prod => ({id: prod.id, ...prod.data()})));
+        })
+        .catch((error) => console.log("error"))
         .finally(() => setLoading(false));
-    }
-    else{
-      GetFetchList.then((response) => {
-        setProduct(response.filter((prod) => prod.category === categoryId));
-      })
-        .catch((error) => console.log(error))
+      console.log(products);
+    } else {
+      itemsCategoryCollection.get()
+        .then((resp) => {
+          setProducts(resp.docs.map(prod =>  ({id: prod.id, ...prod.data()})));
+        })
+        .catch((error) => console.log("error"))
         .finally(() => setLoading(false));
+      console.log(products);
     }
-    console.log(categoryId)
   }, [categoryId]);
 
   return (
@@ -35,7 +41,7 @@ const ItemListContainer = () => {
           <Spinner animation="border" />
         </div>
       ) : (
-        <ItemList product={product} />
+        <ItemList product={products} />
       )}
     </div>
   );

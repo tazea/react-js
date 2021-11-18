@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ItemDetail from "./ItemDetail";
-import GetFetchList from "./GetFetchList";
 import Spinner from "react-bootstrap/Spinner";
 import "../styles/styles.css";
 import { useCartContext } from "./CartContext";
+import { getFirestore } from "./getFirestore";
 
 const ItemDetailContainer = () => {
   const [prod, setDetail] = useState([]);
@@ -13,11 +13,12 @@ const ItemDetailContainer = () => {
   const { onAdd } = useCartContext();
 
   useEffect(() => {
-    GetFetchList.then((response) => {
-        setDetail(response.find((prod) => prod.id === productId));
-    })
-      .catch((error) => console.log(error))
-      .finally(() => setLoading(false));
+    const db = getFirestore();
+    db.collection("items").doc(productId).get()
+    .then( resp => setDetail( {id:resp.id, ...resp.data()} ))
+    .catch((error) => console.log("error"))
+    .finally(() => setLoading(false));
+
   }, [productId]);
 
   return (
@@ -27,7 +28,7 @@ const ItemDetailContainer = () => {
           <Spinner animation="border" />
         </div>
       ) : (
-        <ItemDetail prod={prod} onAdd={onAdd}/>
+        <ItemDetail prod={prod} onAdd={onAdd} />
       )}
     </div>
   );

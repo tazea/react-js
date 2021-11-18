@@ -22,8 +22,6 @@ const CartContextProvider = ({ children }) => {
     const isInCart = cartItems.find((item) => item.id === prod.id);
     if (isInCart.qty > 1) {
       isInCart.qty -= 1;
-    } else {
-      isInCart.qty = 1;
     }
     updatePrice();
   };
@@ -35,7 +33,7 @@ const CartContextProvider = ({ children }) => {
 
   const updatePrice = () => {
     for (const item of cartItems) {
-      setTotal(item.price * item.qty);
+      setTotal(total + (item.price * item.qty));
     }
     console.log(total);
   };

@@ -7,7 +7,6 @@ import { Link } from "react-router-dom";
 
 const Cart = () => {
   const { cartItems, onAdd, onDecrease, onRemove, total } = useCartContext();
-  console.log(cartItems);
 
   return (
     <Container>
@@ -20,7 +19,7 @@ const Cart = () => {
               <div className="cartContainer">
                 <Row className="itemContainer">
                   <Col xs={3}>
-                    <img className="" height="250px" src={item.img} alt={item.title} />
+                    <img className="" height="250px" src={'../assets/'+ item.image} alt={item.title} />
                   </Col>
                   <Col xs={6}>
                     <h1>{item.title}</h1>
