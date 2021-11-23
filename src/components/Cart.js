@@ -4,9 +4,37 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import "../styles/cart.css";
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import {getFirestore} from './getFirestore'
 
 const Cart = () => {
   const { cartItems, onAdd, onDecrease, onRemove, total } = useCartContext();
+  const [formData, setformData] = useState({
+    name: '',
+    phone: '',
+    email: '',
+    city: ''
+  })
+
+  const createOrder = (e) =>{
+    e.preventDefault()
+
+    let order = {}
+
+    order.buyer = {name: 'Gasti', phone: '344652610', email: 'gasti@gmail.com', city: 'Cordoba'}
+    order.total = total;
+    order.items = cartItems.map(cartItem => {
+      const id = cartItem.id;
+      const title = cartItem.title;
+      const price = cartItem.price * cartItem.qty;
+
+      return {id, title, price}
+    })
+
+    const dbQuery = getFirestore()
+    dbQuery.collection('orders').add(order)
+    .then(resp => console.log(resp))
+  }
 
   return (
     <Container>
@@ -47,6 +75,15 @@ const Cart = () => {
           <div>
             <Col xs={{ span: 2, offset: 10 }}>
               <h3>Total: {total}</h3>
+            </Col>
+            <Col>
+              <form onSubmit={createOrder}>
+                <input type='text' name='name' placeholder='Name'/>
+                <input type='text' name='phone' placeholder='Phone'/>
+                <input type='email' name='email' placeholder='Email'/>
+                <input type='text' name='city' placeholder='City'/>
+                <button>Checkout</button>
+              </form>
             </Col>
           </div>
         </Row>
