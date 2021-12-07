@@ -1,0 +1,23 @@
+h2{
+    font-family: "Montserrat Medium";
+}
+p{
+    font-family: "Montserrat Light";
+}
+.landingContainer{
+    padding: 4rem;
+}
+.landingTextContainer{
+    display: flex;
+}
+.landingText{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.landingImage{
+    padding: 2rem;
+}
+.Img{
+    width: 100%;
+}

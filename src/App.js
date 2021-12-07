@@ -1,9 +1,10 @@
-import NavBar from "./components/NavBar";
-import ItemListContainer from "./components/ItemListContainer";
-import ItemDetailContainer from "./components/ItemDetailContainer";
+import NavBar from "./Components/NavBar/NavBar";
+import ItemListContainer from "./Components/ItemListContainer/ItemListContainer";
+import ItemDetailContainer from "./Components/ItemDetailContainer/ItemDetailContainer";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import CartContextProvider from "./components/CartContext";
-import Cart from "./components/Cart";
+import CartContextProvider from "./Components/CartContext/CartContext";
+import LandingPage from "./Components/LandingPage/LandingPage"
+import Cart from "./Components/Cart/Cart";
 import "../src/styles/app.css";
 
 function App() {
@@ -15,9 +16,7 @@ function App() {
             <BrowserRouter>
               <NavBar />
               <Switch>
-                <Route path="/" exact>
-                  Landing
-                </Route>
+                <Route path="/" exact component={LandingPage}></Route>
                 <Route path="/product/:productId" exact component={ItemDetailContainer}></Route>
                 <Route path="/category/:categoryId" exact component={ItemListContainer}></Route>
                 <Route path="/support" exact></Route>

@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import ItemDetail from "./ItemDetail";
+import ItemDetail from "../ItemDetail/ItemDetail";
 import Spinner from "react-bootstrap/Spinner";
-import "../styles/styles.css";
-import { useCartContext } from "./CartContext";
-import { getFirestore } from "./getFirestore";
+import "./ItemDetailContainer.css";
+import { useCartContext } from "../CartContext/CartContext";
+import { getFirestore } from "../getFirestore/getFirestore";
 
 const ItemDetailContainer = () => {
   const [prod, setDetail] = useState([]);

@@ -1,6 +1,6 @@
 import { BsCart } from "react-icons/bs"
-import "../styles/styles.css";
-import { useCartContext } from "./CartContext";
+import "./CartWidjet.css";
+import { useCartContext } from "../CartContext/CartContext";
 
 
 const CartWidjet = () => {

@@ -1,0 +1,18 @@
+.headerBackground{
+    display: flex;
+    justify-content: center;
+    height: 65vh;
+    object-fit: fill;
+    overflow: hidden; 
+}
+.headerImg{
+    min-height: 100%;
+    min-width: 100%;
+}
+.headerText{
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
