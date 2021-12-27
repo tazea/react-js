@@ -23,4 +23,6 @@ Aprendimos que react es una herramienta muy poderosa para la creacion de interfa
     Nos permite manejar el enrutamiento de nuestra pagina sobrescribiendo el codigo basado en su URL sin tener que recargarla por completo.
 - [Firebase v@8.9.1](https://firebase.google.com/) Base de datos de Google la cual nos permite almacenar y sincronizar datos en tiempo real.
 
-Podemos ver el funcionamiento de la pagina resumido en un [GIF](https://imgur.com/oZRUakI).
+## Demo
+
+[Deploy](https://podium-electronics-5af7bf.netlify.app/).
